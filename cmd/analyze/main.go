@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"os"
 	"time"
-
+	"runtime"
 	"github.com/sidd-dhegaskar/log-analyzer/internal/accesslog"
 	"github.com/sidd-dhegaskar/log-analyzer/internal/analyzer"
 )
@@ -33,6 +33,8 @@ func run(dir, mode string, top int) error {
 
 	var stats *accesslog.Stats
 	switch mode {
+	case "racy":
+		stats,err=analyzer.Racy(files)
 	case "sequential":
 		stats, err = analyzer.Sequential(files)
 	default:
@@ -42,8 +44,7 @@ func run(dir, mode string, top int) error {
 		return err
 	}
 
-	fmt.Fprintf(os.Stderr, "mode=%s files=%d elapsed=%v\n", mode, len(files), time.Since(start))
-
+	fmt.Fprintf(os.Stderr, "mode=%s files=%d elapsed=%v goroutines=%d\n", mode, len(files), time.Since(start), runtime.NumGoroutine())
 	enc := json.NewEncoder(os.Stdout)
 	enc.SetIndent("", "  ")
 	return enc.Encode(stats.Report(top))
