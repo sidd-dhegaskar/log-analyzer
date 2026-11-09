@@ -1,0 +1,58 @@
+{
+  "total_requests": 499511,
+  "malformed_lines": 489,
+  "status_counts": {
+    "200": 199708,
+    "201": 33363,
+    "204": 33458,
+    "301": 33336,
+    "400": 33386,
+    "401": 33332,
+    "404": 66767,
+    "500": 33132,
+    "503": 33029
+  },
+  "top_endpoints": [
+    {
+      "endpoint": "GET /api/users",
+      "count": 64769
+    },
+    {
+      "endpoint": "GET /api/orders",
+      "count": 59570
+    },
+    {
+      "endpoint": "POST /api/orders",
+      "count": 55650
+    },
+    {
+      "endpoint": "GET /api/products",
+      "count": 50729
+    },
+    {
+      "endpoint": "GET /api/cart",
+      "count": 46822
+    },
+    {
+      "endpoint": "POST /api/cart",
+      "count": 42375
+    },
+    {
+      "endpoint": "GET /health",
+      "count": 37911
+    },
+    {
+      "endpoint": "POST /api/login",
+      "count": 33469
+    },
+    {
+      "endpoint": "GET /api/search",
+      "count": 28878
+    },
+    {
+      "endpoint": "DELETE /api/cart",
+      "count": 24009
+    }
+  ],
+  "avg_latency_ms": 250.28593564506087
+}
