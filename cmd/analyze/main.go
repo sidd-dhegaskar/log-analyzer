@@ -33,6 +33,8 @@ func run(dir, mode string, top int) error {
 
 	var stats *accesslog.Stats
 	switch mode {
+	case "channel":
+		stats, err = analyzer.Channel(files)
 	case "locked":
 		stats, err = analyzer.Locked(files)
 	case "racy":
